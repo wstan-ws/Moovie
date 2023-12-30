@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+        <a href="/home">
+            <h2>LOGO</h2>
+        </a>
+
+        <h3>Edit Booking Details</h3>
+
+        <form method="POST" data-th-action="@{/editsuccess}" data-th-object="${formDetails}">
+            <table>
+                <tr>
+                    <td>
+                        <p>Name: <span data-th-text="${name}"></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>Email: <span data-th-text="${email}"></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="movie">Movie:</label>
+                    </td>
+                    <td>
+                        <select name="movie" id="movie" data-th-field="*{movie}">
+                            <option data-th-each="movie : ${movieList}" data-th-value="${movie.title}" data-th-text="${movie.title}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="date">Date:</label>
+                    </td>
+                    <td>
+                        <input type="date" name="date" id="date" data-th-field="*{date}">
+                        <span data-th-if="${#fields.hasErrors('date')}" data-th-errors="*{date}" data-th-errorclass="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="time">Time:</label>
+                    </td>
+                    <td>
+                        <select name="time" id="time" data-th-field="*{time}">
+                            <option value="12.00PM">12.00PM</option>
+                            <option value="3.00PM">3.00PM</option>
+                            <option value="6.00PM">6.00PM</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="room">Room:</label>
+                    </td>
+                    <td>
+                        <select name="room" id="room" data-th-field="*{room}">
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit">Edit Booking</button>
+        </form>
+        
+    </body>
+</html>

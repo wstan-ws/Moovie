@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+        <h2>LOGO</h2>
+        <h3>NAME OF ESTABLISHMENT</h3>
+
+        <a href="/retrievebooking">
+            <button>Retrieve your Booking</button>
+        </a>
+
+        <h5>SLOGAN</h5>
+
+        <a href="/movie">
+            <button>Book Your Room Now</button>
+        </a>
+
+        <h3>Advanced Technology</h3>
+        <p>State-of-the-art 20" CRT TV</p>
+
+        <h3>Massive Location</h3>
+        <p>6 rooms of differing sizes to choose from</p>
+
+        <h3>Accessible Location</h3>
+        <p>Hogwarts Castle, Highlands, Scotland, Great Britain, Singapore</p>
+
+        <h5>Now Showing</h5>
+        <table>
+            <tr data-th-each="movie: ${movieList}">
+                <td data-th-text="${movie.title}"></td>
+                <td data-th-text="${movie.year}"></td>
+                <td><img data-th-src="${movie.poster}" alt=""></td>
+            </tr>
+        </table>
+
+    </body>
+</html>

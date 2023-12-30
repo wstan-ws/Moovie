@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+        <a href="/home">
+            <h2>LOGO</h2>
+        </a>
+
+        <h3>Booking Details</h3>
+
+        <img data-th-src="${poster}" alt="">
+        <p>You have selected <span data-th-text="${title}"></span></p>
+
+        <form method="POST" data-th-action="@{/success}" data-th-object="${formDetails}">
+            <table>
+                <tr>
+                    <td>
+                        <label for="name">Name:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="name" id="name" data-th-field="*{name}">
+                        <span data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}" data-th-errorclass="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="email">Email:</label>
+                    </td>
+                    <td>
+                        <input type="email" name="email" id="email" data-th-field="*{email}">
+                        <span data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}" data-th-errorclass="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="date">Date:</label>
+                    </td>
+                    <td>
+                        <input type="date" name="date" id="date" data-th-field="*{date}">
+                        <span data-th-if="${#fields.hasErrors('date')}" data-th-errors="*{date}" data-th-errorclass="error"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="time">Time:</label>
+                    </td>
+                    <td>
+                        <select name="time" id="time" data-th-field="*{time}">
+                            <option value="12.00PM">12.00PM</option>
+                            <option value="3.00PM">3.00PM</option>
+                            <option value="6.00PM">6.00PM</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="room">Room:</label>
+                    </td>
+                    <td>
+                        <select name="room" id="room" data-th-field="*{room}">
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button type="submit">Book Now</button>
+        </form>
+        
+    </body>
+</html>

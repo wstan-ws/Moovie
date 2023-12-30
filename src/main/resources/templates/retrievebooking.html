@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+        <a href="/home">
+            <h2>LOGO</h2>
+        </a>
+
+        <h2>Retrieve Booking</h2>
+
+        <form method="POST" data-th-action="@{/booking}" data-th-object="${uniqueKey}">
+            <label for="retrievebooking">Enter your Unique Key: </label>
+            <input type="text" name="uniqueKey" id="uniqueKey" data-th-field="*{uniqueKey}">
+            <button type="submit">Retrieve Booking</button>
+        </form>
+            
+        <a href="/home">
+            <button>Back to Home</button>
+        </a>
+
+    </body>
+</html>
