@@ -1,0 +1,102 @@
+.highlighttext{
+    font-family: "Rubik";
+    font-size: 72px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.highlightlink{
+    font-family: "Poppins";
+    font-size: 25px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    width: 500px;
+    margin: 5px;
+    background-color: #ffd700;
+    color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    border-radius: 100px;
+    border-width: 1.5px;
+}
+
+.highlightlink:hover{
+    background-color: #c4a604;
+}
+
+.highlightlink:visited{
+    color: black;
+}
+
+.blocktitle{
+    font-family: "Rubik";
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.blockpara{
+    font-family: "Poppins";
+    font-size: 20px;
+}
+
+.firstblock{
+    height: 300px;
+    background-color: black;
+    margin-left: -1%;
+    margin-right: -1%;
+}
+
+/* .secondblock{
+    height: 300px;
+}
+
+.thirdblock{
+    height: 300px;
+} */
+
+.firstblocktext{
+    display: inline-block;
+    margin-top: 65px;
+    margin-left: 5%;
+}
+
+.CRT{
+    margin-left: auto;
+    height: 300px;
+    width: 535px;
+    display: inline-block;
+    position: relative;
+    float: right;
+}
+
+.movie{
+    margin-left: 5%;
+    display: inline-block;
+    text-align: center;
+}
+
+.movieheader{
+    font-family: "Rubik";
+    font-size: 30px;
+    font-weight: 500;
+    color: #ffd700;
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 30px;
+}
+
+.movieposter{
+    height: 339px;
+    width: 225px;
+}
+
+.movietext{
+    font-family: "Poppins";
+    font-size: 16px;
+}

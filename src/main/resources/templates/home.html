@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head> 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Reels Studio</title>
+        <link rel="icon" href="plainlogo.png">
+        <link rel="stylesheet" href="mainstyle.css">
+        <link rel="stylesheet" href="homestyle.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@100&family=Rubik:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">    
+        <script src="https://kit.fontawesome.com/ab372eb9f5.js" crossorigin="anonymous"></script>
     </head>
     <body>
         
-        <h2>LOGO</h2>
-        <h3>NAME OF ESTABLISHMENT</h3>
+        <div class="header">
+            <img class="logo" src="logo.png" alt="">
+                <a class="mainlink" href="/movie">Book Now</a>
+                <a class="mainlink" href="/retrievebooking">Retrieve Booking</a>
+        </div>
 
-        <a href="/retrievebooking">
-            <button>Retrieve your Booking</button>
-        </a>
-
-        <h5>SLOGAN</h5>
-
-        <a href="/movie">
-            <button>Book Your Room Now</button>
-        </a>
-
-        <h3>Advanced Technology</h3>
-        <p>State-of-the-art 20" CRT TV</p>
-
-        <h3>Massive Location</h3>
-        <p>6 rooms of differing sizes to choose from</p>
-
-        <h3>Accessible Location</h3>
-        <p>Hogwarts Castle, Highlands, Scotland, Great Britain, Singapore</p>
-
-        <h5>Now Showing</h5>
-        <table>
-            <tr data-th-each="movie: ${movieList}">
-                <td data-th-text="${movie.title}"></td>
-                <td data-th-text="${movie.year}"></td>
-                <td><img data-th-src="${movie.poster}" alt=""></td>
-            </tr>
-        </table>
+        <div class="body">
+            <div>
+                <p class="highlighttext">REEL COMFORT.<br>YOUR PRIVATE MOVIE RETREAT.</p>
+                <a class="highlightlink" href="/movie"> Book Your Room Now</a>
+            </div>
+            
+            <div class="firstblock">
+                <div class="firstblocktext">
+                    <p class="blocktitle">Advanced Technology</p>
+                    <p class="blockpara">State-of-the-art 20" CRT TV</p>
+                </div>
+                <img class="CRT" src="CRT.jpg" alt="">
+            </div>
+            
+            <!-- <div class="secondblock">
+                <p class="blocktitle">Massive Location</p>
+                <p class="blockpara">6 rooms of differing sizes to choose from</p>
+            </div>
+            
+            <div class="thirdblock">
+                <p class="blocktitle">Accessible Location</p>
+                <p class="blockpara">Hogwarts Castle, Highlands, Scotland, Great Britain, Singapore</p>
+            </div> -->
+            
+            <div>
+                <p class="movieheader">Now Showing</p>
+                <div class="movie" data-th-each="movie: ${movieList}">
+                    <img class="movieposter" data-th-src="${movie.poster}" alt="">
+                    <p class="movietext" data-th-text="${movie.title}"></p>
+                    <p class="movietext" data-th-text="${movie.year}"></p>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="footer">
+            <p>Address: Alnwick Castle NE66 1NQ, England, United Kingdom</p>
+            <p>Connect with us</p>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
 
     </body>
 </html>

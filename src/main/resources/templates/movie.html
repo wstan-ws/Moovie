@@ -3,17 +3,33 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Movie Selection</title>
+        <link rel="icon" href="plainlogo.png">
+        <link rel="stylesheet" href="mainstyle.css">
+        <link rel="stylesheet" href="moviestyle.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@100&family=Rubik:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">    
+        <script src="https://kit.fontawesome.com/ab372eb9f5.js" crossorigin="anonymous"></script>
     </head>
     <body>
 
-        <a href="/home">
-            <h2>LOGO</h2>
-        </a>
+        <div class="header">
+            <a href="/home">
+                <img class="logo" src="logo.png" alt="">
+            </a>
+        </div>
 
-        <h3>Choose a Movie</h3>
+        <div class="body">
+            <p class="movieheader">Choose Your Movie</p>
+            <div class="movie" data-th-each="movie: ${movieList}">
+                <img class="movieposter" data-th-src="${movie.poster}" alt="">
+                <p class="movietext" data-th-text="${movie.title}"></p>
+                <p class="movietext" data-th-text="${movie.year}"></p>
+                <a class="movieselect" data-th-href="@{/movie/{title}(title=${movie.title})}">Select</a>
+            </div>
+        </div>
 
-        <table>
+        <!-- <table>
             <tr data-th-each="movie: ${movieList}">
                 <td data-th-text="${movie.title}"></td>
                 <td data-th-text="${movie.year}"></td>
@@ -24,7 +40,15 @@
                     </a>
                 </td>
             </tr>
-        </table>
+        </table> -->
+
+        <div class="footer">
+            <p>Address: Alnwick Castle NE66 1NQ, England, United Kingdom</p>
+            <p>Connect with us</p>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
             
     </body>
 </html>
