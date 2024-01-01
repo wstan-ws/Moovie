@@ -28,6 +28,9 @@ public class MovieController {
     @Autowired
     MovieService movieSvc;
 
+    @Autowired
+    APIRestController apiController;
+
     private List<Movies> movieList = null;
 
     private String uniqueKey = "";
@@ -35,7 +38,7 @@ public class MovieController {
     @GetMapping(path = {"/", "/home"})
     public String getHome(Model model) {
 
-        movieList = movieSvc.getMovies();
+        movieList = apiController.getMovies();
         model.addAttribute("movieList", movieList);
 
         return "home";
@@ -44,7 +47,7 @@ public class MovieController {
     @GetMapping(path = "/movie")
     public String getMoviesSelection(Model model) {
 
-        movieList = movieSvc.getMovies();
+        movieList = apiController.getMovies();
         model.addAttribute("movieList", movieList);
 
         return "movie";
@@ -53,7 +56,7 @@ public class MovieController {
     @GetMapping(path = "/movie/{title}")
     public String getMovieSelection(@PathVariable("title") String title, Model model, HttpSession session) {
 
-        movieList = movieSvc.getMovies();
+        movieList = apiController.getMovies();
         String poster = "";
         for (Movies movie : movieList) {
             if (movie.getTitle().equals(title)) {
@@ -73,7 +76,7 @@ public class MovieController {
     public String postMovie(@Valid @ModelAttribute FormDetails formDetails, BindingResult result, Model model, HttpSession session) {
 
         String title = session.getAttribute("title").toString();
-        movieList = movieSvc.getMovies();
+        movieList = apiController.getMovies();
         String poster = "";
         for (Movies movie : movieList) {
             if (movie.getTitle().equals(title)) {
@@ -82,7 +85,6 @@ public class MovieController {
         }
         model.addAttribute("poster", poster);
         model.addAttribute("title", title);
-        model.addAttribute("formDetails", formDetails);
 
         if (result.hasErrors()) {
             return "detailform";
@@ -125,7 +127,7 @@ public class MovieController {
     public String postBooking(@ModelAttribute UniqueKey enteredKey, BindingResult result, Model model, HttpSession session) {
 
         if (movieSvc.getDetails(enteredKey.getUniqueKey()) == null) {
-            FieldError err = new FieldError("uniqueKey", "uniqueKey", "Invalid Unique Key");
+            FieldError err = new FieldError("uniqueKey", "uniqueKey", "Invalid Booking Reference No.");
             result.addError(err);
             model.addAttribute("error", err.getDefaultMessage());
             return "errorbooking";
@@ -167,26 +169,39 @@ public class MovieController {
         model.addAttribute("email", email);
         model.addAttribute("name", name);
 
-        movieList = movieSvc.getMovies();
+        movieList = apiController.getMovies();
         model.addAttribute("movieList", movieList);
 
         return "edit";
     }
 
     @PostMapping(path = "/editsuccess")
-    public String editSuccess(@ModelAttribute FormDetails formDetails, HttpSession session) {
+    public String editSuccess(@Valid @ModelAttribute FormDetails formDetails, BindingResult result, HttpSession session, Model model) {
 
-        uniqueKey = session.getAttribute("uniquekey").toString();
         String name = session.getAttribute("name").toString();
         String email = session.getAttribute("email").toString();
-        formDetails.setSpecialKey(uniqueKey);
+        model.addAttribute("email", email);
+        model.addAttribute("name", name);
         formDetails.setName(name);
         formDetails.setEmail(email);
+
+        movieList = apiController.getMovies();
+        model.addAttribute("movieList", movieList);
+
+        if (result.hasErrors()) {
+            System.out.println("Errors Detected");
+            System.out.println(result.getAllErrors());
+            return "edit";
+        } 
+
+        uniqueKey = session.getAttribute("uniquekey").toString();
+        formDetails.setSpecialKey(uniqueKey);
 
         String key = session.getAttribute("key").toString();
 
         movieSvc.editBooking(uniqueKey, formDetails, key);
 
         return "editsuccess";
+
     }
 }

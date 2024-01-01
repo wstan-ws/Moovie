@@ -3,76 +3,93 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="icon" href="plainlogo.png">
+        <title>Booking Form</title>
+        <link rel="stylesheet" href="/mainstyle.css">
+        <link rel="stylesheet" href="/formstyle.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@100&family=Rubik:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">    
+        <script src="https://kit.fontawesome.com/ab372eb9f5.js" crossorigin="anonymous"></script>
     </head>
     <body>
         
-        <a href="/home">
-            <h2>LOGO</h2>
-        </a>
+        <div class="header">
+            <a href="/home">
+                <img class="logo" src="/logo.png" alt="">
+            </a>
+        </div>
 
-        <h3>Booking Details</h3>
+        <div class="body">
+            <p class="headertext">Booking Details</p>
 
-        <img data-th-src="${poster}" alt="">
-        <p>You have selected <span data-th-text="${title}"></span></p>
+            <div class="movieinfo">
+                <img class="movieposter" data-th-src="${poster}" alt="">
+                <p class="text">You have selected <strong><span data-th-text="${title}"></span></strong></p>
+            </div>
+    
+            <form method="POST" data-th-action="@{/success}" data-th-object="${formDetails}">
+                <table class="table">
+                    <tr>
+                        <td>
+                            <label for="name"><p class="text">Name:</p></label>
+                        </td>
+                        <td>
+                            <input class="option" type="text" name="name" id="name" data-th-field="*{name}"><br>
+                            <span data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}" data-th-errorclass="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email"><p class="text">Email:</p></label>
+                        </td>
+                        <td>
+                            <input class="option"  type="email" name="email" id="email" data-th-field="*{email}"><br>
+                            <span data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}" data-th-errorclass="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="date"><p class="text">Date:</p></label>
+                        </td>
+                        <td>
+                            <input class="option"  type="date" name="date" id="date" data-th-field="*{date}"><br>
+                            <span data-th-if="${#fields.hasErrors('date')}" data-th-errors="*{date}" data-th-errorclass="error"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="time"><p class="text">Time:</p></label>
+                        </td>
+                        <td>
+                            <select class="option"  name="time" id="time" data-th-field="*{time}">
+                                <option value="12.00PM">12.00PM</option>
+                                <option value="3.00PM">3.00PM</option>
+                                <option value="6.00PM">6.00PM</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="room"><p class="text">Room:</p></label>
+                        </td>
+                        <td>
+                            <select class="option"  name="room" id="room" data-th-field="*{room}">
+                                <option value="S">Small</option>
+                                <option value="M">Medium</option>
+                                <option value="L">Large</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <button class="select" type="submit">Book Now</button>
+            </form>
+        </div>
 
-        <form method="POST" data-th-action="@{/success}" data-th-object="${formDetails}">
-            <table>
-                <tr>
-                    <td>
-                        <label for="name">Name:</label>
-                    </td>
-                    <td>
-                        <input type="text" name="name" id="name" data-th-field="*{name}">
-                        <span data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}" data-th-errorclass="error"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="email">Email:</label>
-                    </td>
-                    <td>
-                        <input type="email" name="email" id="email" data-th-field="*{email}">
-                        <span data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}" data-th-errorclass="error"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="date">Date:</label>
-                    </td>
-                    <td>
-                        <input type="date" name="date" id="date" data-th-field="*{date}">
-                        <span data-th-if="${#fields.hasErrors('date')}" data-th-errors="*{date}" data-th-errorclass="error"></span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="time">Time:</label>
-                    </td>
-                    <td>
-                        <select name="time" id="time" data-th-field="*{time}">
-                            <option value="12.00PM">12.00PM</option>
-                            <option value="3.00PM">3.00PM</option>
-                            <option value="6.00PM">6.00PM</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="room">Room:</label>
-                    </td>
-                    <td>
-                        <select name="room" id="room" data-th-field="*{room}">
-                            <option value="S">Small</option>
-                            <option value="M">Medium</option>
-                            <option value="L">Large</option>
-                        </select>
-                    </td>
-                </tr>
-            </table>
-            <button type="submit">Book Now</button>
-        </form>
-        
+        <div class="footer">
+            <p>Address: Alnwick Castle NE66 1NQ, England, United Kingdom</p>
+            <p>Connect with us</p>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
     </body>
 </html>

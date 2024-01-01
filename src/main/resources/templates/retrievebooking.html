@@ -3,26 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Booking Retrieval</title>
         <link rel="icon" href="plainlogo.png">
+        <link rel="stylesheet" href="mainstyle.css">
+        <link rel="stylesheet" href="successstyle.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@100&family=Rubik:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">    
+        <script src="https://kit.fontawesome.com/ab372eb9f5.js" crossorigin="anonymous"></script>
     </head>
     <body>
         
-        <a href="/home">
-            <h2>LOGO</h2>
-        </a>
+        <div class="header">
+            <a href="/home">
+                <img class="logo" src="logo.png" alt="">
+            </a>
+        </div>
 
-        <h2>Retrieve Booking</h2>
+        <div class="body">
+            <p class="textheader">Retrieve Booking</p>
 
-        <form method="POST" data-th-action="@{/booking}" data-th-object="${uniqueKey}">
-            <label for="retrievebooking">Enter your Unique Key: </label>
-            <input type="text" name="uniqueKey" id="uniqueKey" data-th-field="*{uniqueKey}">
-            <button type="submit">Retrieve Booking</button>
-        </form>
-            
-        <a href="/home">
-            <button>Back to Home</button>
-        </a>
+            <form method="POST" data-th-action="@{/booking}" data-th-object="${uniqueKey}">
+                <label for="retrievebooking"><p class="specialtext">Enter your Booking Reference No.</p></label>
+                <div class="input">
+                    <input type="text" name="uniqueKey" id="uniqueKey" data-th-field="*{uniqueKey}"><br>
+                </div>
+                <button class="select" type="submit">Retrieve Booking</button>
+            </form>
+                
+            <a class="select" href="/home">Back to Home</a>
+        </div>
+        
+
+        <div class="footer">
+            <p>Address: Alnwick Castle NE66 1NQ, England, United Kingdom</p>
+            <p>Connect with us</p>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
 
     </body>
 </html>

@@ -3,36 +3,58 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Booking</title>
         <link rel="icon" href="plainlogo.png">
+        <link rel="stylesheet" href="mainstyle.css">
+        <link rel="stylesheet" href="successstyle.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@100&family=Rubik:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">    
+        <script src="https://kit.fontawesome.com/ab372eb9f5.js" crossorigin="anonymous"></script>
     </head>
     <body>
         
-        <a href="/home">
-            <h2>LOGO</h2>
-        </a>
+        <div class="header">
+            <a href="/home">
+                <img class="logo" src="logo.png" alt="">
+            </a>
+        </div>
 
-        <h2>Your Booking</h2>
+        <div class="body">
+            <p class="textheader">Your Booking</p>
 
-        <table data-th-object="${retrievedDetails}">
-            <tr>Unique Key: <span data-th-text="*{specialKey}"></span></tr>
-            <br>
-            <tr>Name: <span data-th-text="*{name}"></span></tr>
-            <br>
-            <tr>Email: <span data-th-text="*{email}"></span></tr>
-            <br>
-            <tr>Movie: <span data-th-text="*{movie}"></span></tr>
-            <br>
-            <tr>Date: <span data-th-text="*{#dates.format(new java.util.Date(date), 'dd-MM-yyyy')}"></span></tr>
-            <br>
-            <tr>Time: <span data-th-text="*{time}"></span></tr>
-            <br>
-            <tr>Room: <span data-th-text="*{room}"></span></tr>
-        </table>
-        <br>
-        <a href="/home">
-            <button>Back to Home</button>
-        </a>
+            <table data-th-object="${retrievedDetails}">
+                <tr>
+                    <p class="text">Booking Reference No.: <span data-th-text="*{specialKey}"></span></p>
+                </tr>
+                <tr>
+                    <p class="text">Name: <span class="text" data-th-text="*{name}"></span></p>
+                </tr>
+                <tr>
+                    <p class="text">Email: <span class="text" data-th-text="*{email}"></span></p>
+                </tr>
+                <tr>
+                    <p class="text">Movie: <span class="text" data-th-text="*{movie}"></span></p>
+                </tr>
+                <tr>
+                    <p class="text">Date: <span class="text" data-th-text="*{#dates.format(new java.util.Date(date), 'dd-MM-yyyy')}"></span></p>
+                </tr>
+                <tr>
+                    <p class="text">Time: <span class="text" data-th-text="*{time}"></span></p>
+                </tr>
+                <tr>
+                    <p class="text">Room: <span class="text" data-th-text="*{room}"></span></p>
+                </tr>
+            </table>
+            <a class="select" href="/home">Back to Home</a>
+        </div>
+        
+        <div class="footer">
+            <p>Address: Alnwick Castle NE66 1NQ, England, United Kingdom</p>
+            <p>Connect with us</p>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
 
     </body>
 </html>

@@ -3,26 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Edit Successful</title>
         <link rel="icon" href="plainlogo.png">
+        <link rel="stylesheet" href="mainstyle.css">
+        <link rel="stylesheet" href="successstyle.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@100&family=Rubik:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">    
+        <script src="https://kit.fontawesome.com/ab372eb9f5.js" crossorigin="anonymous"></script>
     </head>
     <body>
         
-        <a href="/home">
-            <h2>LOGO</h2>
-        </a>
+        <div class="header">
+            <a href="/home">
+                <img class="logo" src="logo.png" alt="">
+            </a>
+        </div>
 
-        <h2>Booking Edited!</h2>
+        <div class="body">
+            <p class="textheader">Booking Edited!</p>
 
-        <p>A confirmation email has been sent to <span data-th-text="${formDetails.email}"></span></p>
+            <p class="text">A confirmation email has been sent to <span data-th-text="${formDetails.email}"></span></p>
+    
+            <a class="select" href="/booking">View Your Booking</a>
+    
+            <a class="select" href="/home">Back to Home</a>
+        </div>
 
-        <a href="/booking">
-            <button>View Your Booking</button>
-        </a>
-
-        <a href="/home">
-            <button>Back to Home</button>
-        </a>
+        <div class="footer">
+            <p>Address: Alnwick Castle NE66 1NQ, England, United Kingdom</p>
+            <p>Connect with us</p>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
 
     </body>
 </html>
