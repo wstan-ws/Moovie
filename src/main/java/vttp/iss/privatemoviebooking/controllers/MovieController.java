@@ -127,7 +127,7 @@ public class MovieController {
     public String postBooking(@ModelAttribute UniqueKey enteredKey, BindingResult result, Model model, HttpSession session) {
 
         if (movieSvc.getDetails(enteredKey.getUniqueKey()) == null) {
-            FieldError err = new FieldError("uniqueKey", "uniqueKey", "Invalid Booking Reference No.");
+            FieldError err = new FieldError("uniqueKey", "uniqueKey", "Booking Reference No. cannot be found");
             result.addError(err);
             model.addAttribute("error", err.getDefaultMessage());
             return "errorbooking";
@@ -203,5 +203,11 @@ public class MovieController {
 
         return "editsuccess";
 
+    }
+
+    @GetMapping(path = "/error")
+    public String getError() {
+
+        return "error";
     }
 }

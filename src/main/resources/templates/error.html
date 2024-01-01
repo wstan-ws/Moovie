@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Booking</title>
+        <title>Error</title>
         <link rel="icon" href="plainlogo.png">
         <link rel="stylesheet" href="mainstyle.css">
         <link rel="stylesheet" href="successstyle.css">
@@ -20,33 +20,8 @@
         </div>
 
         <div class="body">
-            <p class="textheader">Your Booking</p>
+            <p class="textheader">Oops! An error has occurred.</p>
 
-            <table data-th-object="${retrievedDetails}">
-                <tr>
-                    <p class="text">Booking Reference No.: <span data-th-text="*{specialKey}"></span></p>
-                </tr>
-                <tr>
-                    <p class="text">Name: <span data-th-text="*{name}"></span></p>
-                </tr>
-                <tr>
-                    <p class="text">Email: <span data-th-text="*{email}"></span></p>
-                </tr>
-                <tr>
-                    <p class="text">Movie: <span data-th-text="*{movie}"></span></p>
-                </tr>
-                <tr>
-                    <p class="text">Date: <span data-th-text="*{#dates.format(new java.util.Date(date), 'dd-MM-yyyy')}"></span></p>
-                </tr>
-                <tr>
-                    <p class="text">Time: <span data-th-text="*{time}"></span></p>
-                </tr>
-                <tr>
-                    <p class="text">Room: <span data-th-text="*{room}"></span></p>
-                </tr>
-            </table>
-            <a class="select" href="/edit">Edit Booking</a>
-            <a class="select" href="/delete">Cancel Booking</a>
             <a class="select" href="/home">Back to Home</a>
         </div>
 
@@ -57,5 +32,7 @@
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-tiktok"></i>
         </div>
+
+
     </body>
 </html>
