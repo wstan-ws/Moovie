@@ -3,8 +3,8 @@
     <head> 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Reels Studio</title>
-        <link rel="icon" href="plainlogo.png">
+        <title>Reel Studio</title>
+        <link rel="icon" href="logo.ico">
         <link rel="stylesheet" href="mainstyle.css">
         <link rel="stylesheet" href="homestyle.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
@@ -33,22 +33,28 @@
                 <img class="CRT" src="CRT.jpg" alt="">
             </div>
             
-            <!-- <div class="secondblock">
-                <p class="blocktitle">Massive Location</p>
-                <p class="blockpara">6 rooms of differing sizes to choose from</p>
+            <div class="secondblock">
+                <img class="room" src="room.jpg" alt="">
+                <div class="secondblocktext">
+                    <p class="blocktitle">Massive Location</p>
+                    <p class="blockpara">6 Total Rooms, 3 Different Room Sizes</p>
+                </div>
             </div>
             
             <div class="thirdblock">
-                <p class="blocktitle">Accessible Location</p>
-                <p class="blockpara">Hogwarts Castle, Highlands, Scotland, Great Britain, Singapore</p>
-            </div> -->
+                <div class="thirdblocktext">
+                    <p class="blocktitle">Accessible Location</p>
+                    <p class="blockpara">Alnwick Castle a.k.a Hogwarts Castle</p>
+                </div>
+                <img class="castle" src="castle.jpg" alt="">
+            </div>
             
             <div>
                 <p class="movieheader">Now Showing</p>
                 <div class="movie" data-th-each="movie: ${movieList}">
                     <img class="movieposter" data-th-src="${movie.poster}" alt="">
                     <p class="movietext" data-th-text="${movie.title}"></p>
-                    <p class="movietext" data-th-text="${movie.year}"></p>
+                    <p class="movietext" id="bottommovietext" data-th-text="${movie.year}"></p>
                 </div>
             </div>
             

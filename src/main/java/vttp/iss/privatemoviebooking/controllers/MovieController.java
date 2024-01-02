@@ -152,12 +152,11 @@ public class MovieController {
     public String deleteBooking(HttpSession session) {
 
         uniqueKey = session.getAttribute("uniquekey").toString();
-        FormDetails details = movieSvc.getDetails(uniqueKey);
-        String key = details.getDate() + details.getTime() + details.getRoom();
+        String key = session.getAttribute("key").toString();
 
         movieSvc.deleteBooking(uniqueKey, key);
 
-        return "/delete";
+        return "delete";
     }
 
     @GetMapping(path = "/edit")
