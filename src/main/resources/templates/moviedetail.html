@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Information</title>
+        <link rel="icon" href="/logo.ico">
+        <link rel="stylesheet" href="/mainstyle.css">
+        <link rel="stylesheet" href="/homestyle.css">
+        <link rel="stylesheet" href="/moviedetail.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@100&family=Rubik:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">    
+        <script src="https://kit.fontawesome.com/ab372eb9f5.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <div class="header">
+            <a href="/home">
+                <img class="logo" src="/logo.png" alt="">
+            </a>
+        </div>
+
+        <div class="body" data-th-object="${movie}">
+            <p class="movieheader">Movie Information</p>
+            <img class="movieposter" data-th-src="${movie.poster}" alt="">
+            <table class="movietable">
+                <tr>
+                    <td class="firstcolumn"><strong>Movie Title:</strong></td>
+                    <td><p class="movietext" data-th-text="${movie.title}"></p></td>
+                </tr>
+                <tr>
+                    <td class="firstcolumn"><strong>Year Released:</strong></td>
+                    <td><p class="movietext" data-th-text="${movie.year}"></p></td>
+                </tr>
+                <tr>
+                    <td class="firstcolumn"><strong>Movie Rating:</strong></td>
+                    <td><p class="movietext" data-th-text="${movie.rating}"></p></td>
+                </tr>
+                <tr>
+                    <td class="firstcolumn"><strong>Rated:</strong></td>
+                    <td><p class="movietext" data-th-text="${movie.rated}"></p></td>
+                </tr>
+                <tr>
+                    <td class="firstcolumn"><strong>Runtime:</strong></td>
+                    <td><p class="movietext" data-th-text="${movie.runtime}"></p></td>
+                </tr>
+                <tr>
+                    <td class="firstcolumn"><strong>Plot Summary:</strong></td>
+                    <td><p class="movietext" data-th-text="${movie.plot}"></p></td>
+                </tr>
+            </table>
+            <a class="mainlink" href="/movielist">Back to Movie List</a>
+        </div>
+
+        <div class="footer">
+            <p>Address: Alnwick Castle NE66 1NQ, England, United Kingdom</p>
+            <p>Connect with us</p>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-tiktok"></i>
+        </div>
+        
+    </body>
+</html>

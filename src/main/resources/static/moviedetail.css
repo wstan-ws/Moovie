@@ -1,0 +1,71 @@
+.body{
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+tr, td{
+    border: 2px #ffd700 solid;
+}
+
+table{
+    width: 80%;
+}
+
+.firstcolumn{
+    width: 20%;
+    font-family: "Poppins";
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.movietable{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.mainlink{
+    margin-top: 20px;
+}
+
+.sortbutton{
+    font-family: "Poppins";
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    line-height: 25px;
+    width: 150px;
+    margin: 5px;
+    background-color: #ffd700;
+    color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 100px;
+    border-width: 1.5px;
+}
+
+.sortbutton:hover{
+    background-color: #c4a604;
+}
+
+.sortbutton:visited{
+    color: black;
+}
+
+.nowshowing{
+    font-family: "Rubik";
+    font-size: 30px;
+    font-weight: 500;
+    color: #ffd700;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 10px;
+}
+
+#bottombutton{
+    margin-bottom: 20px;
+}

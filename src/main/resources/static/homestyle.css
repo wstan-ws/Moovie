@@ -2,6 +2,7 @@
     font-family: "Rubik";
     font-size: 72px;
     text-align: center;
+    text-shadow: black 2px 2px, black 2px -2px, black -2px 2px, black -2px -2px;
     margin-top: 30px;
     margin-bottom: 25px;
     padding-top: 30px;
@@ -46,6 +47,12 @@
     font-size: 20px;
 }
 
+.zeroblock{
+    height: 300px;
+    background-color: #001f3f;
+    padding-bottom: 0;
+}
+
 .firstblock{
     height: 300px;
     background-color: black;
@@ -62,6 +69,22 @@
     height: 300px;
     background-color: black;
     padding-bottom: 0;
+}
+
+.zeroblocktext{
+    display: inline-block;
+    margin-top: 40px;
+    margin-right: 5%;
+    float: right;
+}
+
+.movielist{
+    margin-right: auto;
+    height: 300px;
+    width: 535px;
+    display: inline-block;
+    position: relative;
+    float: left;
 }
 
 .firstblocktext{
@@ -123,9 +146,7 @@
     font-weight: 500;
     color: #ffd700;
     text-align: center;
-    margin-bottom: 30px;
     padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 .movieposter{
@@ -143,4 +164,37 @@
 
 #bottommovietext{
     padding-bottom: 25px;
+}
+
+.backlink{
+    font-family: "Poppins";
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    line-height: 25px;
+    width: 150px;
+    /* margin: 5px; */
+    background-color: #ffd700;
+    color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+    border-width: 1.5px;
+}
+
+.backlink:hover{
+    background-color: #c4a604;
+}
+
+.backlink:visited{
+    color: black;
+}
+
+.mainblock{
+    height: 300px;
+    background-image: url(movie.gif);
+    background-position: center;
+    margin-bottom: 0;
 }

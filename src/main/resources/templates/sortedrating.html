@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Movie Selection</title>
-        <link rel="icon" href="logo.ico">
-        <link rel="stylesheet" href="mainstyle.css">
-        <link rel="stylesheet" href="moviestyle.css">
+        <title>Movie List by Rating</title>
+        <link rel="icon" href="/logo.ico">
+        <link rel="stylesheet" href="/mainstyle.css">
+        <link rel="stylesheet" href="/homestyle.css">
+        <link rel="stylesheet" href="/moviedetail.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Rubik:wght@500&family=Space+Mono&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@100&family=Rubik:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">    
         <script src="https://kit.fontawesome.com/ab372eb9f5.js" crossorigin="anonymous"></script>
@@ -15,18 +16,23 @@
 
         <div class="header">
             <a href="/home">
-                <img class="logo" src="logo.png" alt="">
+                <img class="logo" src="/logo.png" alt="">
             </a>
         </div>
 
         <div class="body">
-            <p class="movieheader">Choose Your Movie</p>
+            <p class="nowshowing">Now Showing</p>
+            <a class="sortbutton" href="/movielist">Sort by Movie Title</a>
+            <a class="sortbutton" id="bottombutton" href="/movielist/byYear">Sort by Year</a>
             <div class="movie" data-th-each="movie: ${movieList}">
-                <img class="movieposter" data-th-src="${movie.poster}" alt="">
+                <a data-th-href="@{/moviedetail/{title}(title=${movie.title})}">
+                    <img class="movieposter" data-th-src="${movie.poster}" alt="">
+                </a>
                 <p class="movietext" data-th-text="${movie.title}"></p>
                 <p class="movietext" data-th-text="${movie.year}"></p>
-                <a class="movieselect" data-th-href="@{/movie/{title}(title=${movie.title})}">Select</a>
+                <p class="movietext" id="bottommovietext" data-th-text="${movie.rating}"></p>
             </div>
+            <a class="backlink" href="/home">Back to Home</a>
         </div>
 
         <div class="footer">
@@ -36,6 +42,6 @@
             <i class="fa-brands fa-facebook"></i>
             <i class="fa-brands fa-tiktok"></i>
         </div>
-            
+
     </body>
 </html>

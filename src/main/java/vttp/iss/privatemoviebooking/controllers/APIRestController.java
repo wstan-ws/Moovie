@@ -19,7 +19,7 @@ import vttp.iss.privatemoviebooking.model.Movies;
 @RestController
 public class APIRestController {
     
-    @Value("${newsapi.key}")
+    @Value("${movieapi.key}")
     private String apiKey;
 
     private List<Movies> movieList = null;
@@ -28,7 +28,6 @@ public class APIRestController {
 
         String url = UriComponentsBuilder
             .fromUriString("https://www.omdbapi.com")
-            // apikey needs to be header instead
             .queryParam("apikey", apiKey)
             .queryParam("s", "storm")
             .queryParam("type", "movie")
@@ -51,9 +50,67 @@ public class APIRestController {
                 String title = o.getString("Title");
                 Integer year = Integer.parseInt(o.getString("Year"));
                 String poster = o.getString("Poster");
-                return new Movies(title, year, poster); 
+                String imdbID = o.getString("imdbID");
+                return new Movies(title, year, poster, imdbID); 
             })
             .sorted((c0, c1) -> c0.getTitle().compareTo(c1.getTitle()))
+            .toList();
+
+        return movieList;
+    }
+
+    public List<Movies> getMovieDetails() {
+
+        movieList = getMovies();
+
+        for (Movies movie : movieList) {
+            String id = movie.getImdbID();
+
+            String url = UriComponentsBuilder
+            .fromUriString("https://www.omdbapi.com")
+            .queryParam("apikey", apiKey)
+            .queryParam("i", id)
+            .queryParam("plot", "full")
+            .toUriString();
+
+            RequestEntity<Void> request = RequestEntity.get(url).build();
+
+            RestTemplate template = new RestTemplate();
+
+            ResponseEntity<String> response = template.exchange(request, String.class);
+            String payload = response.getBody();
+
+            JsonReader reader = Json.createReader(new StringReader(payload));
+            JsonObject object = reader.readObject();
+            
+            String rated = object.getString("Rated");
+            String runtime = object.getString("Runtime");
+            String plot = object.getString("Plot");
+            String rating = object.getString("imdbRating");
+            rating = rating + Character.toString(0x2B50);
+
+            movie.setRated(rated);
+            movie.setRuntime(runtime);
+            movie.setPlot(plot);
+            movie.setRating(rating);
+        }
+
+        return movieList;
+    }
+
+    public List<Movies> sortedYear() {
+
+        movieList = movieList.stream()
+            .sorted((c0, c1) -> c1.getYear().compareTo(c0.getYear()))
+            .toList();
+
+        return movieList;
+    }
+
+    public List<Movies> sortedRating() {
+
+        movieList = movieList.stream()
+            .sorted((c0, c1) -> c1.getRating().compareTo(c0.getRating()))
             .toList();
 
         return movieList;

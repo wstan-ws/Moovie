@@ -36,10 +36,7 @@ public class MovieController {
     private String uniqueKey = "";
 
     @GetMapping(path = {"/", "/home"})
-    public String getHome(Model model) {
-
-        movieList = apiController.getMovies();
-        model.addAttribute("movieList", movieList);
+    public String getHome() {
 
         return "home";
     }
@@ -208,5 +205,48 @@ public class MovieController {
     public String getError() {
 
         return "error";
+    }
+
+    @GetMapping(path = "/movielist")
+    public String getMovieList(Model model) {
+
+        movieList = apiController.getMovieDetails();
+        model.addAttribute("movieList", movieList);
+
+        return "movielist";
+    }
+
+    @GetMapping(path = "/moviedetail/{title}")
+    public String getMovieDetail(@PathVariable("title") String title, Model model) {
+
+        movieList = apiController.getMovieDetails();
+        Movies selectedMovie = null;
+        for (Movies movie : movieList) {
+            if (movie.getTitle().equals(title)) {
+                selectedMovie = movie;
+            }
+        }
+
+        model.addAttribute("movie", selectedMovie);
+
+        return "moviedetail";
+    }
+
+    @GetMapping(path = "/movielist/byYear")
+    public String getMovieListByYear(Model model) {
+
+        movieList = apiController.sortedYear();
+        model.addAttribute("movieList", movieList);
+
+        return "sortedyear";
+    }
+
+    @GetMapping(path = "/movielist/byRating")
+    public String getMovieListByRating(Model model) {
+
+        movieList = apiController.sortedRating();
+        model.addAttribute("movieList", movieList);
+
+        return "sortedrating";
     }
 }
