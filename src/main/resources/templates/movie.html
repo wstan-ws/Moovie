@@ -21,6 +21,7 @@
 
         <div class="body">
             <p class="movieheader">Choose Your Movie</p>
+            <a class="viewmovie" href="/movielist">View Movie List</a>
             <div class="movie" data-th-each="movie: ${movieList}">
                 <img class="movieposter" data-th-src="${movie.poster}" alt="">
                 <p class="movietext" data-th-text="${movie.title}"></p>

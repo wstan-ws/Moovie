@@ -88,7 +88,7 @@ public class MovieController {
         }
 
         if (movieSvc.remainingOccupancy(formDetails) >= 2) {
-            FieldError err = new FieldError("formDetails", "date", "Max Occupancy Reached. Please select another date/time or room");
+            FieldError err = new FieldError("formDetails", "date", "Max occupancy reached. Please select another date, time or room size.");
             result.addError(err);
             model.addAttribute("error", err.getDefaultMessage());
             return "errorbooking";
@@ -124,7 +124,7 @@ public class MovieController {
     public String postBooking(@ModelAttribute UniqueKey enteredKey, BindingResult result, Model model, HttpSession session) {
 
         if (movieSvc.getDetails(enteredKey.getUniqueKey()) == null) {
-            FieldError err = new FieldError("uniqueKey", "uniqueKey", "Booking Reference No. cannot be found");
+            FieldError err = new FieldError("uniqueKey", "uniqueKey", "Booking Reference No. cannot be found.");
             result.addError(err);
             model.addAttribute("error", err.getDefaultMessage());
             return "errorbooking";

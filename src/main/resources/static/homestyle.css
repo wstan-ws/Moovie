@@ -104,7 +104,7 @@
 
 .secondblocktext{
     display: inline-block;
-    margin-top: 65px;
+    margin-top: 45px;
     margin-right: 5%;
     float: right;
 }
@@ -197,4 +197,35 @@
     background-image: url(movie.gif);
     background-position: center;
     margin-bottom: 0;
+}
+
+.viewmovie{
+    font-family: "Poppins";
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    width: 250px;
+    margin: 5px;
+    background-color: #ffd700;
+    color: black;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+    border-width: 1.5px;
+}
+
+.viewmovie:hover{
+    background-color: #c4a604;
+}
+
+.viewmovie:visited{
+    color: black;
+}
+
+.blocksubtext{
+    font-family: "Poppins";
+    font-size: 14px;
 }
